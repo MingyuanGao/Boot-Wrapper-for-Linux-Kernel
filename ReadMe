@@ -1,0 +1,49 @@
+This is a bootwrapper for starting Linux kernel on the Xilinx Zynq 7000 platform. 
+Howerver, it can be reused on any ARM platform with proper modification.
+
+(Tested on Ubuntu 14.04_x86-64 with Linaro Tool Chain from Ubuntu repository)
+
+=================================================================================
+1 Prerequisite
+
+1.1 A Cross Compiler for the Target Platform
+    The Linaro tool chain can be installed from Ubuntu repository using the 
+	following command:
+		
+		sudo apt-get install gcc-arm-linux-gnueabihf 
+		(with harware floating point)
+		
+		or
+
+		sudo apt-get install gcc-arm-linux-gnueabi 	
+
+1.2 The Device Tree Script/Blob for the Target Platform
+
+1.3 The Linux Kernel Source/Image for the Target Platform 
+
+=================================================================================
+2 Inputs and Outputs
+
+2.1 Inputs
+    Linux Kernel Images: zImage
+	
+	Device Tree Blob: devicetree.dtb
+	
+	(Optional) Ramdisk: ramdisk.img
+	* If you do not need a ram disk as (temporary) root file system, you can 
+	  specify the root device in the device tree script.
+
+2.2 Outputs
+	A bootable Linux kernel in ELF format will be generated. 
+
+=================================================================================
+3 Usage
+
+3.1 Source the Environment Variables in [envsetup.sh]
+    
+	source ./envsetup.sh
+
+3.2 Generate linux.elf
+    
+	make 
+
